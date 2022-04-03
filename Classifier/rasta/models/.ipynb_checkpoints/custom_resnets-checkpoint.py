@@ -7,6 +7,7 @@ from keras.layers import Input,Activation,Flatten,Conv2D,MaxPooling2D,ZeroPaddin
 from keras.layers import Dense
 from keras.engine.topology import get_source_inputs
 from keras.utils.data_utils import get_file
+# from keras.applications.resnet50 import conv_block
 # from keras.applications.resnet50 import identity_block,conv_block
 
 
@@ -100,7 +101,7 @@ def custom_resnet(n=0,dp_rate=0):
     x = AveragePooling2D((7, 7), name='avg_pool')(x)
 
     x = Flatten()(x)
-    x = Dense(25, activation='softmax', name='fc1000')(x)
+    x = Dense(2, activation='softmax', name='fc1000')(x)
     # Ensure that the model takes into account
     # any potential predecessors of `input_tensor`.
 
@@ -124,7 +125,7 @@ def custom_resnet(n=0,dp_rate=0):
 
     return model
 
-def resnet_dropout(include_top=False, weights='imagenet', input_tensor = None, pooling='avg', input_shape=(224,224,3),classes=25,dp_rate=0.,n_retrain_layers=0):
+def resnet_dropout(include_top=False, weights='imagenet', input_tensor = None, pooling='avg', input_shape=(224,224,3),classes=2,dp_rate=0.,n_retrain_layers=0):
 
 
 

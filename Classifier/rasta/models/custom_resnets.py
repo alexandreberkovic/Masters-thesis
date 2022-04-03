@@ -7,6 +7,7 @@ from keras.layers import Input,Activation,Flatten,Conv2D,MaxPooling2D,ZeroPaddin
 from keras.layers import Dense
 from keras.engine.topology import get_source_inputs
 from keras.utils.data_utils import get_file
+# from keras.applications.resnet50 import conv_block
 # from keras.applications.resnet50 import identity_block,conv_block
 
 
@@ -266,4 +267,3 @@ def _set_n_retrain(model,n,reinit=False):
 if __name__ == '__main__':
     model = resnet_trained(1)
     print(model.summary())
-
