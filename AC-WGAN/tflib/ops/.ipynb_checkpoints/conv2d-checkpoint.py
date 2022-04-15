@@ -18,7 +18,6 @@ def set_weights_stdev(weights_stdev):
     global _weights_stdev
     _weights_stdev = weights_stdev
 
-
 def unset_weights_stdev():
     global _weights_stdev
     _weights_stdev = None
@@ -59,8 +58,8 @@ def Conv2D(
             mask[center, center + 1 :, :, :] = 0.0
 
             # Mask out future channels
-            for i in xrange(mask_n_channels):
-                for j in xrange(mask_n_channels):
+            for i in range(mask_n_channels):
+                for j in range(mask_n_channels):
                     if (mask_type == "a" and i >= j) or (mask_type == "b" and i > j):
                         mask[
                             center, center, i::mask_n_channels, j::mask_n_channels
